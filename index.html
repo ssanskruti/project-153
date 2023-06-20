@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <script src="./diver.js"></script>
+  </head>
+
+  <body>
+    <a-scene background="color:#026F90">
+
+      <a-entity id="look" look-controls camera position="0 8 30"></a-entity>
+
+      <!--Asset Management-->
+      <a-assets timeout="10000">        
+        <a-asset-item id="OceanMap" src="./ocean/scene.gltf"></a-asset-item>
+        <a-asset-item id="diver" src="./diver/scene.gltf"></a-asset-item>
+        
+      </a-assets>
+      
+      <!-- Ocean  -->
+      <a-entity id="ocean" gltf-model="#OceanMap" position="0 0 0" scale="0.8 0.8 0.8" 
+      animation="property:position;to:0 0 1000;easing:linear;loop:true;dur:1500000" ></a-entity>
+      <a-entity id="scuba-diver" gltf-model="#diver" position="0 3 28" rotation="0 90 0" scale="0.04 0.04 0.04" diver-plane></a-entity>
+      
+    </a-scene>
+  </body>
+</html>
